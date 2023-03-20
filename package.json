@@ -1,0 +1,27 @@
+{
+  "name": "contentful-gitflow-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "push-models": "npx mbfactory push models ./contentful/types/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amitkumar/contentful-gitflow-test.git"
+  },
+  "author": "Amit Kumar <amit@thoughtful.works>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amitkumar/contentful-gitflow-test/issues"
+  },
+  "homepage": "https://github.com/amitkumar/contentful-gitflow-test#readme",
+  "devDependencies": {
+    "@modelberry/mbfactory": "^8.0.3",
+    "@modelberry/plugin-contentful": "^8.0.3",
+    "@types/node": "^18.15.3",
+    "contentful-migration": "^4.12.9",
+    "typescript": "^5.0.2"
+  }
+}
