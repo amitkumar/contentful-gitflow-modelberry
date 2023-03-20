@@ -18,12 +18,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: ".nvmrc"
         run: |
           npm i
-          npx mbfactory push models --yes ./contentful/types/index.ts 
-`
+          npx mbfactory push models --yes ./contentful/types/index.ts
