@@ -9,6 +9,8 @@ env:
   CONTENTFUL_SPACE_ID: 9e19l8odqhi1
   CONTENTFUL_ENVIRONMENT: master
   MODELBERRY_PROJECT_NAME: contentful-gitflow-test
+  CONTENTFUL_PERSONAL_ACCESS_TOKEN:
+    { { secrets.CONTENTFUL_PERSONAL_ACCESS_TOKEN } }
 
 jobs:
   run-migrations:
@@ -24,8 +26,11 @@ jobs:
         with:
           node-version-file: ".nvmrc"
 
-      - name: Push models to Contentful
+      - name: Install packages
         run: |
           npm config set registry https://registry.npmjs.org
           npm install
+
+      - name: Push models to Contentful
+        run: |
           npx mbfactory push models --yes ./contentful/types/index.ts
