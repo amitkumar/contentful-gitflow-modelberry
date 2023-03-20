@@ -6,9 +6,10 @@ on:
       - "staging"
 
 env:
-  CONTENTFUL_SPACE_ID: 9e19l8odqhi1
+  CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
   CONTENTFUL_ENVIRONMENT: staging
   MODELBERRY_PROJECT_NAME: contentful-gitflow-test
+  CONTENTFUL_PERSONAL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_PERSONAL_ACCESS_TOKEN }}
 
 jobs:
   run-migrations:
@@ -18,12 +19,17 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.nvmrc'
+          node-version-file: ".nvmrc"
+
+      - name: Install packages
         run: |
-          npm i
-          npx mbfactory push models --yes ./contentful/types/index.ts 
-`
+          npm config set registry https://registry.npmjs.org
+          npm install
+
+      - name: Push models to Contentful
+        run: |
+          npx mbfactory push models --yes ./contentful/types/index.ts
