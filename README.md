@@ -5,5 +5,5 @@ and Github actions to push model updates to the appropriate Contentful environme
 
 ```
 CONTENTFUL_SPACE_ID=""
-CONTENTFUL_PERSONAL_ACCESS_TOKEN==""
+CONTENTFUL_PERSONAL_ACCESS_TOKEN=""
 ```
