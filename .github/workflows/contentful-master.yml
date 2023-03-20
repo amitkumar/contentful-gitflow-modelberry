@@ -1,4 +1,4 @@
-name: Push Contentful models to staging
+name: Push Contentful models to master
 
 on:
   push:
