@@ -23,6 +23,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
+
+      - name: Push models to Contentful
         run: |
-          npm i
           npx mbfactory push models --yes ./contentful/types/index.ts
