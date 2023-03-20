@@ -1,0 +1,31 @@
+name: Push Contentful models to staging
+
+on:
+  push:
+    branches:
+      - "master"
+
+env:
+  CONTENTFUL_SPACE_ID: 9e19l8odqhi1
+  CONTENTFUL_ENVIRONMENT: master
+  MODELBERRY_PROJECT_NAME: contentful-gitflow-test
+
+jobs:
+  run-migrations:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+
+      - name: Push models to Contentful
+        run: |
+          npm config set registry https://registry.npmjs.org
+          npm install
+          npx mbfactory push models --yes ./contentful/types/index.ts
