@@ -26,4 +26,5 @@ jobs:
 
       - name: Push models to Contentful
         run: |
+          npm config set registry https://registry.npmjs.org
           npx mbfactory push models --yes ./contentful/types/index.ts
