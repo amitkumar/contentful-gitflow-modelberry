@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "push-models": "npx mbfactory push models ./contentful/types/index.ts"
+    "push-models": "npx mbfactory push models ./contentful/types/index.ts",
+    "pull-models": "npx mbfactory pull models @modelberry/plugin-contentful  ./sunrun-models"
   },
   "repository": {
     "type": "git",
